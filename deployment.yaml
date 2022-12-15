@@ -1,0 +1,31 @@
+  apiVersion: apps/v1
+  kind: Deployment
+
+
+  metadata:
+    name: dep1
+
+
+  spec:
+    selector: 
+      matchLabels:
+        name: menna-manar
+        
+    replicas: 3
+    template:
+      metadata:
+        name: my-first-pod
+        labels:
+          name: menna-manar
+        
+      spec:
+        containers:
+          - image: megrya/webimage
+            name: nginx-container
+            resources:
+              limits:
+                memory: "512Mi"
+                cpu: "1"
+              requests:
+                memory: "100Mi"
+
